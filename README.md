@@ -1,6 +1,8 @@
 # Example app to start with
 
 
+[![Build Status](https://travis-ci.org/alnutile/interview_foundation.svg?branch=master)](https://travis-ci.org/alnutile/interview_foundation)
+
 This is an example application foundation.
 
 What I will want is for you to complete the following tasks so I can then review the work.
@@ -81,6 +83,7 @@ With this you have to get your .travis.yml file to run the PHPunit tests etc
 This build is already working in travis so it should be pretty easy and this .travis
 file should get you going
 
+Update your readme Travis badge to match your build
 
 ## Tests
 This feature will require some testing, those tests should only use the
