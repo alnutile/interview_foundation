@@ -1,0 +1,23 @@
+language: php
+
+php:
+  - 7.3
+
+services:
+  - mysql
+
+## Cache composer
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - cp .env.travis .env
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - composer install
+  - php artisan migrate
+
+script:
+  - vendor/bin/phpcs --standard=psr2 app/
+  - vendor/bin/phpunit --coverage-clover clover.xml --stop-on-failure
+  - php ./coverage-checker.php clover.xml 38
