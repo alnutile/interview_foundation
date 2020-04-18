@@ -1,9 +1,9 @@
-# Example app to start with
+# Interview Foundation Build
 
 
 [![Build Status](https://travis-ci.org/alnutile/interview_foundation.svg?branch=master)](https://travis-ci.org/alnutile/interview_foundation)
 
-This is an example application foundation.
+This is a vanilla Laravel 7 install
 
 What I will want is for you to complete the following tasks so I can then review the work.
 
@@ -16,7 +16,7 @@ you need to turn this into a test
 ```
 Feature: Github API Integration
   As a user of the site
-  I want to add my github name and token
+  I want to add my github token to a form
   So I can then see my starred repos
 
 Scenario: User can log in
@@ -33,10 +33,10 @@ Scenario: User can log in
 ###
 Scenario: Form on Home page to add my Github token
   Given I am logged in
-  Then I can add my github token
+  Then I can add my github token to a form
   And click save
   Then it will be encrypted in the database in the user table
-  And then the home page will show that token decrypted
+  ****Then**** the home page will show that token decrypted
   And if the token is null it will say "No Token? Click here to learn how to make token"
   And it will link in a new tab to github docs so user knows how to make a token
 
@@ -55,6 +55,7 @@ Scenario: Press button to get starred repos
   Then I will see a button to get starred repos
   And if I have not set my token this will be grayed out
   And if I click that it will say "Getting your data" while it makes the request
+  And axios will make a request to a protected api route on our app that then will call github to get the data
   And when it gets the starred repos it will show them on the home page
 ```
 
@@ -89,5 +90,5 @@ Update your readme Travis badge to match your build
 This feature will require some testing, those tests should only use the
 Refreshdatabase as needed.
 
-
+Test should not hit the api use Facade mocking for that
 
