@@ -73,6 +73,10 @@ I should be able to build this on my machine with
 ## Fork the repo
 Make sure to fork it this way I can look over later.
 
+## Keep Controllers small
+Use Laravels single action controllers (see docs)
+Make sure controllers are small and business logic is in a sharable class
+
 
 ## Work in small commits
 I do not want to see what big code dump I want you to push often using PRs
