@@ -1,17 +1,15 @@
-# Interview Foundation Build
+# Starred Repos
 
 
-[![Build Status](https://travis-ci.org/alnutile/interview_foundation.svg?branch=master)](https://travis-ci.org/alnutile/interview_foundation)
+[![Build Status](https://travis-ci.org/chiefbrob/interview_foundation.svg?branch=master)](https://travis-ci.org/chiefbrob/interview_foundation)
 
-This is a vanilla Laravel 7 install
+A laravel 7 project to list your starred repos on Github.
+Live site: [Starred Repos on Chiefbrob](http://starredrepos.on.chiefbrob.info)
 
-What I will want is for you to complete the following tasks so I can then review the work.
 
+## The business story
 
-## The business story to complete
-
-We try to write our stories in Gherkin so I will do that below. It does not mean
-you need to turn this into a test
+Stories written in Gherkin
 
 ```
 Feature: Github API Integration
@@ -59,40 +57,26 @@ Scenario: Press button to get starred repos
   And when it gets the starred repos it will show them on the home page
 ```
 
-So you can see from above we are dealing with authentication, vuejs
-axios requests, components and security.
+Coverage: authentication, vuejs, axios requests, components and security
 
-And most importantly PHPUnit test that mock the interactions with the API Classes
 
-I should be able to build this on my machine with
+
+Build this on your machine with
 
   * composer install
   * npm install && npm run dev
 
 
-## Fork the repo
-Make sure to fork it this way I can look over later.
-
-## Keep Controllers small
-Use Laravels single action controllers (see docs)
-Make sure controllers are small and business logic is in a sharable class
+## Notes on Controllers
+Laravels single action controllers
+Business logic kept in appropriate sharable Class
 
 
-## Work in small commits
-I do not want to see what big code dump I want you to push often using PRs
-As you take small steps and write tests push (more on this in a moment)
-
-
-## Sign up for TravisCI and setup it up to run per build
-With this you have to get your .travis.yml file to run the PHPunit tests etc
-This build is already working in travis so it should be pretty easy and this .travis
-file should get you going
-
-Update your readme Travis badge to match your build
+## Small commits with PRs
 
 ## Tests
-This feature will require some testing, those tests should only use the
-Refreshdatabase as needed.
-
-Test should not hit the api use Facade mocking for that
+Feature Tests with PHPUnit 
+-mocking interactions with API Classes.
+-only use the Refreshdatabase as needed
+-Facade mocking used instead of hiting api
 
