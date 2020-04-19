@@ -18,3 +18,6 @@ Route::get('/', 'ShowWelcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/saveGithubToken', 'SaveGithubToken');
+Route::get('/getGithubToken', 'GetGithubToken');
