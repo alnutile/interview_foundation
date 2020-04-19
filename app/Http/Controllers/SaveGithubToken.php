@@ -25,19 +25,14 @@ class SaveGithubToken extends Controller
 
         $user = Auth::user();
 
-        if($user->setGithubToken($request->github_token))
-        {
+        if ($user->setGithubToken($request->github_token)) {
             return response()->json([
                 'message' => 'ok'
             ]);
-        }
-        else
-        {
+        } else {
             return response()->json([
                 'message' => 'error'
             ]);
         }
-
-
     }
 }

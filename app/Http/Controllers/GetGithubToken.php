@@ -22,15 +22,12 @@ class GetGithubToken extends Controller
     {
         $user = Auth::user();
         $tk = $user->decryptedGithubToken();
-        if($tk)
-        {
+        if ($tk) {
             return response()->json([
                 'message' => 'ok',
                 'github_token' => $tk
             ]);
-        }
-        else
-        {
+        } else {
             return [
                 'message' => 'error'
             ];
