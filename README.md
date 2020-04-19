@@ -76,7 +76,8 @@ Business logic kept in appropriate sharable Class
 
 ## Tests
 Feature Tests with PHPUnit 
--mocking interactions with API Classes.
--only use the Refreshdatabase as needed
--Facade mocking used instead of hiting api
+
+  * mocking interactions with API Classes.
+  * only used the Refreshdatabase as needed
+  * Facade mocking used instead of hiting api
 
