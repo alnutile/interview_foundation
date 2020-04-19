@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
@@ -12,6 +12,7 @@ use App\User;
 
 class RegisterTest extends TestCase
 {
+    use DatabaseTransactions; 
     public function testRegisterFormDisplayed()
     {
         $response = $this->get('/register');
