@@ -6,16 +6,19 @@ use Illuminate\View\Component;
 
 class StarredRepository extends Component
 {
-    public $name;
-    public $url;
+    public $title;
+    public $href;
+    public $description;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($title = 'Repository name', $href = 'https://github.com/usr/repo', $description = 'About this repository')
     {
-        //
+        $this->title = $title;
+        $this->href= $href;
+        $this->description = $description;
     }
 
     /**

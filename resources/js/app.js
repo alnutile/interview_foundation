@@ -10,7 +10,10 @@ const app = new Vue({
     	return {
     		github_token: '',
     		starred_repositories: [],
-            loadingRepositories: false
+            loadingRepositories: false,
+            name: [],
+            description: [],
+            url: []
     	}    	
     },
     methods: {
@@ -40,7 +43,16 @@ const app = new Vue({
             .then(function (response) {
                 if(response.status == 200 && response.data.length > 0)
                 {
-                    currentObj.starred_repositories = response.data;
+                    let arr = [];
+                    for (var i = response.data.length - 1; i >= 0; i--) {
+                        let repo = response.data[i];
+                        //arr[arr.length] = {name:repo.name, url:repo.html_url};
+                        arr[arr.length] = repo;
+                        currentObj.name[currentObj.name.length] = repo.name;
+                        currentObj.url[currentObj.url.length] = repo.html_url;
+                        currentObj.description[currentObj.description.length] = repo.description;
+                    }
+                    currentObj.starred_repositories = arr;
                 }
                 currentObj.loadingRepositories = false;
             })
