@@ -86,3 +86,15 @@ Test Driven Development
   * only used the Refreshdatabase as needed
   * Facade mocking used instead of hiting api
 
+## Screenshots
+
+![Add Github Token](https://starredrepos.on.chiefbrob.info/images/screenshot1.png)
+
+![Github Token added](https://starredrepos.on.chiefbrob.info/images/screenshot2.png)
+
+![Get Starred Repos](https://starredrepos.on.chiefbrob.info/images/screenshot3.png)
+
+![Getting your data](https://starredrepos.on.chiefbrob.info/images/screenshot4.png)
+
+![Your Starred Repositories](https://starredrepos.on.chiefbrob.info/images/screenshot5.png)
+
