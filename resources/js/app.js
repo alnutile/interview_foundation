@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import BootstrapVue from 'bootstrap-vue'
+window.Vue.use(BootstrapVue) 
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,4 +31,28 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    data() {
+    	return {
+    		github_token: '',
+    		starred_repositories: []
+    	}    	
+    },
+    methods: {
+    	saveGithubToken(e) {
+    		e.preventDefault();
+    		if (this.github_token == '')
+    			return;
+            let currentObj = this;
+            //show loading
+            axios.post('/saveGithubToken', {
+                github_token: this.github_token
+            })
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    	}
+    }
 });
