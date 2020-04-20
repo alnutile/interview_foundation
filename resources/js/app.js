@@ -1,40 +1,16 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
 import BootstrapVue from 'bootstrap-vue'
 window.Vue.use(BootstrapVue) 
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 const app = new Vue({
     el: '#app',
     data() {
     	return {
     		github_token: '',
-    		starred_repositories: []
+    		starred_repositories: [],
+            loadingRepositories: false
     	}    	
     },
     methods: {
@@ -43,16 +19,35 @@ const app = new Vue({
     		if (this.github_token == '')
     			return;
             let currentObj = this;
-            //show loading
             axios.post('/saveGithubToken', {
                 github_token: this.github_token
             })
             .then(function (response) {
-                console.log(response.data);
+                alert("Github token saved");
+                window.location.reload();
             })
             .catch(function (error) {
                 console.log(error);
+                alert('An error occurred saving your token');
             });
-    	}
+    	},
+        getGithubRepositories() {
+            
+            let currentObj = this;
+
+            currentObj.loadingRepositories = true;
+            axios.get('/github/callback')
+            .then(function (response) {
+                if(response.status == 200 && response.data.length > 0)
+                {
+                    currentObj.starred_repositories = response.data;
+                }
+                currentObj.loadingRepositories = false;
+            })
+            .catch(function (error) {
+                console.log(error);
+                currentObj.loadingRepositories = false;
+            });
+        }
     }
 });

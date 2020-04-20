@@ -27,7 +27,7 @@ class Button extends Component
     public function render()
     {
         return <<<'blade'
-            <b-button variant="{{$variant}}">{{ $name }}</b-button>
+            <b-button variant="{{$variant}}" @click="saveGithubToken">{{ $name }}</b-button>
         blade;
     }
 }
