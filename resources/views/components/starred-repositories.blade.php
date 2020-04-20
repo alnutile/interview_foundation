@@ -20,16 +20,13 @@
       <h4><span v-text="starred_repositories.length"></span> Starred Repositories</h4>
       <div v-if="starred_repositories.length > 0">
 
-        <div v-for="repo in starred_repositories" v-bind:key="repo.url">
-          <x-starred-repository 
+          <x-starred-repository
+           v-for="repo in starred_repositories" 
             
-            v-bind:title="repo.name" 
-            v-bind:description="repo.description" 
-            v-bind:href="repo.html_url" 
-          />
-        </div>
-
-          
+            v-slot:name="repo.name" 
+            >
+            @{{ repo.name }}
+          </x-starred-repository>
           
         
       </div>
