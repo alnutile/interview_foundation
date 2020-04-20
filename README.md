@@ -88,13 +88,13 @@ Test Driven Development
 
 ## Screenshots
 
-![Add Github Token](https://starredrepos.on.chiefbrob.info/images/screenshot1.png)
+![Add Github Token](https://raw.githubusercontent.com/chiefbrob/interview_foundation/master/public/images/screenshot1.png)
 
-![Github Token added](https://starredrepos.on.chiefbrob.info/images/screenshot2.png)
+![Github Token added](https://raw.githubusercontent.com/chiefbrob/interview_foundation/master/public/images/screenshot2.png)
 
-![Get Starred Repos](https://starredrepos.on.chiefbrob.info/images/screenshot3.png)
+![Get Starred Repos](https://raw.githubusercontent.com/chiefbrob/interview_foundation/master/public/images/screenshot3.png)
 
-![Getting your data](https://starredrepos.on.chiefbrob.info/images/screenshot4.png)
+![Getting your data](https://raw.githubusercontent.com/chiefbrob/interview_foundation/master/public/images/screenshot4.png)
 
-![Your Starred Repositories](https://starredrepos.on.chiefbrob.info/images/screenshot5.png)
+![Your Starred Repositories](https://raw.githubusercontent.com/chiefbrob/interview_foundation/master/public/images/screenshot5.png)
 
