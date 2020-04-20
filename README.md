@@ -65,6 +65,7 @@ Coverage: authentication, vuejs, axios requests, components and security
 
 Build this on your machine with
 
+  * .env - DB_DATABASE, DB_USERNAME, DB_PASSWORD, GITHUB_TOKEN 
   * composer install
   * npm install && npm run dev
 

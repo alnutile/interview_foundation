@@ -43,4 +43,18 @@ class UserGithubTokenTest extends TestCase
                 'message' => 'error',
             ]);
     }
+
+    public function testGetStarredRepos(){
+        Session::start();
+        $user = factory('App\User')->create([
+            'github_token' => encrypt(env('GITHUB_TOKEN')),
+        ]);
+
+        $response = $this->actingAs($user)->get('/github/callback', [
+            '_token' => csrf_token()
+        ]);
+
+        $response->assertStatus(200);
+        $response->assertSeeText('ok');
+    }
 }
