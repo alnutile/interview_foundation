@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ config('app.name', 'Starred Repos') }}</title>
-
+        <link rel="icon" sizes="512x512" href="{{ asset('logo.png') }}">
+        <meta property="og:type"          content="website" />
+        <meta property="og:site_name" content="Starred" />
+        <meta name="description" content="View all your starred repo by adding a github token." />
+        <meta name="msapplication-TileImage" content="{{ asset('logo.png') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
