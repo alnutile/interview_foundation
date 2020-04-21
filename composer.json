@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Returns your starred repositories on github using token",
     "keywords": [
         "framework",
         "laravel"

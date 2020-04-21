@@ -1,15 +1,13 @@
-# Example app to start with
+# Github Starred Repositories
 
 
-This is an example application foundation.
+Displays your starred repositories on github using token
 
-What I will want is for you to complete the following tasks so I can then review the work.
+Live site: [Starred](http://starredrepos.on.chiefbrob.info)
+
+## Business story in Gherkin 
 
 
-## The business story to complete
-
-We try to write our stories in Gherkin so I will do that below. It does not mean
-you need to turn this into a test
 
 ```
 Feature: Github API Integration
@@ -56,35 +54,29 @@ Scenario: Press button to get starred repos
   And when it gets the starred repos it will show them on the home page
 ```
 
-So you can see from above we are dealing with authentication, vuejs
-axios requests, components and security.
+Dealing with authentication, vuejs, axios requests, components and security.
 
-And most importantly PHPUnit test that mock the interactions with the API Classes
+Most importantly PHPUnit test that mock the interactions with the API Classes
 
-I should be able to build this on my machine with
+Build this on my machine with
 
+  * update .env
   * composer install
   * npm install && npm run dev
 
 
-## Fork the repo
-Make sure to fork it this way I can look over later.
 
-
-## Work in small commits
+## Git small commits
 I do not want to see what big code dump I want you to push often using PRs
 As you take small steps and write tests push (more on this in a moment)
 
 
-## Sign up for TravisCI and setup it up to run per build
-With this you have to get your .travis.yml file to run the PHPunit tests etc
-This build is already working in travis so it should be pretty easy and this .travis
-file should get you going
+## TravisCI setup up to run per build
+This build is already working in travis so it should be pretty easy and this .travis file should get you going
 
 
 ## Tests
-This feature will require some testing, those tests should only use the
-Refreshdatabase as needed.
+This feature will require some testing, those tests should only use the Refreshdatabase as needed.
 
 
 
