@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <github-token></github-token>
                 </div>
             </div>
         </div>
