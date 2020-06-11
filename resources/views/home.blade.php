@@ -15,6 +15,7 @@
                     @endif
 
                     <github-token user_github_token="{{$token}}"></github-token>
+                    <starred-repo-list user_github_token="{{$token}}"></starred-repo-list>
                 </div>
             </div>
         </div>

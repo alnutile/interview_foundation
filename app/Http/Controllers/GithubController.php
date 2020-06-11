@@ -22,4 +22,13 @@ class GithubController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    public function starred(GithubService $service, Request $request)
+    {
+        $token = $request->post('token');
+
+        $repos = $service->getStarredRepos($token);
+
+        return response()->json($repos);
+    }
 }

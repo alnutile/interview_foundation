@@ -23,4 +23,5 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/github/token', 'GithubController@saveToken')->name('save-token');
+    Route::post('/github/starred', 'GithubController@starred')->name('starred');
 });
