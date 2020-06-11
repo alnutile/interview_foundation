@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +16,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        try {
+            $userGithubToken = Auth::user()->github_token;
+            if (empty($userGithubToken)) {
+                return view('home', [
+                    'token' => ''
+                ]);
+            }
+            $token = Crypt::decrypt($userGithubToken);
+            return view('home', [
+                'token' => $token
+            ]);
+        } catch (DecryptException $e) {
+            Log::error($e->getMessage());
+            Log::error($e->getTraceAsString());
+        }
     }
 }

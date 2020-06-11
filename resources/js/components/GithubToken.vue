@@ -9,10 +9,11 @@
       >
         <b-form-input
           id="github_token"
-          v-model="form.token"
+          v-model="token"
           type="text"
           required
           placeholder="Token..."
+          :disabled="showHelp == false"
         ></b-form-input>
       </b-form-group>
       <b-form-group v-if="showHelp">
@@ -25,27 +26,39 @@
         </p>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Save Token</b-button>
+      <b-button type="submit" variant="primary" :disabled="showHelp == false">Save Token</b-button>
     </b-form>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    user_github_token: String
+  },
   data() {
     return {
-      form: {
-        token: '123'
-      },
+      token: "",
       showHelp: false
     };
   },
   mounted() {
-    this.showHelp = this.form.token == null
+    this.token = this.user_github_token || "";
+    this.showHelp = this.token == "";
   },
   methods: {
     onSubmit(evt) {
-
+      evt.preventDefault();
+      axios
+        .post("/github/token", {
+          token: this.token
+        })
+        .then(function(response) {
+          console.log(response.data);
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
     }
   }
 };

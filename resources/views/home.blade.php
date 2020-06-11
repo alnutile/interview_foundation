@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <github-token></github-token>
+                    <github-token user_github_token="{{$token}}"></github-token>
                 </div>
             </div>
         </div>
