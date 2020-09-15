@@ -57,6 +57,12 @@ Scenario: Press button to get starred repos
   And if I click that it will say "Getting your data" while it makes the request
   And axios will make a request to a protected api route on our app that then will call github to get the data
   And when it gets the starred repos it will show them on the home page
+  
+Scenario: Dealing with 500 or bad token
+  Given I am logged in
+  And my token is setup
+  And I click Get data but the token is no longer valid
+  Then I should see a bootvuejs Toast message letting me know the error
 ```
 
 So you can see from above we are dealing with authentication, vuejs
