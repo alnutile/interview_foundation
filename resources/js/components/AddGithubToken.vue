@@ -14,6 +14,11 @@
                         placeholder="token"
                     ></b-form-input>
                     <b-button @click="addGithubToken" variant="primary">Save</b-button>
+                    <div>
+                        <b-link target="_blank" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">
+                            No Token? Click here to learn how to make token
+                        </b-link>
+                    </div>
                 </b-form>
             </div>
         </div>

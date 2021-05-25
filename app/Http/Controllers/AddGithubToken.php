@@ -18,8 +18,10 @@ class AddGithubToken extends Controller
      */
     public function __invoke(TokenRequest $request)
     {
-        $request->user()->fill(['github_token' => Crypt::encryptString($request->token),])->save();
+        $user = $request->user();
 
-        return response()->noContent();
+        $user->fill(['github_token' => Crypt::encryptString($request->token),])->save();
+
+        return new UserResource($user);
     }
 }
