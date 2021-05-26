@@ -1,7 +1,7 @@
 # Interview Foundation Build
 
 
-[![Build Status](https://travis-ci.org/alnutile/interview_foundation.svg?branch=master)](https://travis-ci.org/alnutile/interview_foundation)
+[![Build Status](https://travis-ci.com/geneowak/interview_foundation.svg?branch=mainline)](https://travis-ci.com/geneowak/interview_foundation)
 
 This is a vanilla Laravel 7 install
 
@@ -101,4 +101,3 @@ This feature will require some testing, those tests should only use the
 Refreshdatabase as needed.
 
 Test should not hit the api use Facade mocking for that
-
