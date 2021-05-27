@@ -7,7 +7,9 @@ import {
     FormGroupPlugin,
     FormInputPlugin,
     FormPlugin,
-    ProgressPlugin
+    ProgressPlugin,
+    SpinnerPlugin,
+    TablePlugin
 } from 'bootstrap-vue'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
@@ -17,6 +19,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.component('user-login-component', require('./components/UserLoginComponent.vue').default);
 Vue.component('user-registration-component', require('./components/UserRegistrationComponent.vue').default);
 Vue.component('github-token-form-component', require('./components/GithubTokenFormComponent.vue').default);
+Vue.component('github-starred-repos-component', require('./components/GithubStarredReposComponent.vue').default);
 
 Vue.use(CardPlugin);
 Vue.use(FormPlugin);
@@ -25,6 +28,8 @@ Vue.use(FormInputPlugin);
 Vue.use(ProgressPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(AlertPlugin);
+Vue.use(SpinnerPlugin);
+Vue.use(TablePlugin);
 
 Vue.prototype.$http = http;
 Vue.prototype.$user = window.User;

@@ -68,7 +68,7 @@ export default {
             this.token = data.token;
             this.success_message = data.message;
             this.showSuccess = true;
-
+            window.location.reload();
           }).catch((error) => {
         this.error_message = get(error, 'response.data.message', 'Something went wrong');
         this.showError = true;
