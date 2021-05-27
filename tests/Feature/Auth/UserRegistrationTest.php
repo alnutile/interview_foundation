@@ -14,6 +14,13 @@ class UserRegistrationTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function it_renders_the_registration_page()
+    {
+        $this->get('register')
+            ->assertOk();
+    }
+
+    /** @test */
     public function user_can_register_in_app()
     {
         $data = factory(User::class)->raw();
