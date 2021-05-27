@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GetGithubStarredReposController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginViewController;
@@ -38,4 +39,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/auth/logout', LogoutController::class)->name('logout');
 
     Route::put('/auth/githubToken', UpdateGithubTokenController::class);
+    Route::get('/auth/starredGithubRepos', GetGithubStarredReposController::class);
 });
