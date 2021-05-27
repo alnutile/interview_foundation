@@ -2,10 +2,11 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'github_token',
     ];
 
     /**
@@ -38,9 +39,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'user_github_token',
+    ];
+
 
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function setGithubTokenAttribute($value)
+    {
+        $this->attributes['github_token'] = Crypt::encryptString($value);
+    }
+
+    public function getUserGithubTokenAttribute()
+    {
+        try {
+            return Crypt::decryptString($this->github_token);
+        } catch (DecryptException $exception) {
+            return null;
+        }
     }
 }

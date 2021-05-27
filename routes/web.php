@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginViewController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegistrationViewController;
+use App\Http\Controllers\UpdateGithubTokenController;
 use App\Http\Controllers\UserRegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,8 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::post('/auth/logout', LogoutController::class)->name('logout');
     Route::get('/home', HomeController::class)->name('home');
+    Route::post('/auth/logout', LogoutController::class)->name('logout');
+
+    Route::put('/auth/githubToken', UpdateGithubTokenController::class);
 });
