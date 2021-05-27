@@ -19,6 +19,13 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
+    <script>
+        window.User = {
+            name: "{{optional(auth()->user())->name}}",
+            github_token: "{{optional(auth()->user())->user_github_token}}"
+        }
+    </script>
+
     <style>
         html,
         body {

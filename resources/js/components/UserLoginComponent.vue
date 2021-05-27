@@ -63,8 +63,8 @@ export default {
       this.$http.post('/auth/login', {email: this.email, password: this.password})
           .then(() => {
             window.location.reload();
-          }).catch(({response}) => {
-        this.error_message = get(response, 'data.message', 'something went wrong');
+          }).catch((error) => {
+        this.error_message = get(error, 'response.data.message', 'Something went wrong');
         this.showError = true;
       })
     }

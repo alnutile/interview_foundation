@@ -24,7 +24,7 @@ class UpdateGithubTokenController extends Controller
         $user->update(['github_token' => $data['token']]);
 
         return response()->json([
-            'message' => 'Token has been created successfully',
+            'message' => 'Token has been updated successfully',
             'token' => $user->fresh()->user_github_token,
         ], 201);
     }
