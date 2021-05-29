@@ -17,7 +17,7 @@ class GetStarredReposTest extends TestCase
     {
         $this->mock(GitHubManager::class, function ($mock) {
             $mock->shouldReceive('authenticate')->once();
-            $mock->shouldReceive('me')->once();
+            $mock->shouldReceive('me->starring->all')->once();
         });
 
         $user = factory(User::class)

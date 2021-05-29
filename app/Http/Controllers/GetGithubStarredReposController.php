@@ -40,11 +40,9 @@ class GetGithubStarredReposController extends Controller
         try {
             $this->github->authenticate($token, null, \Github\Client::AUTH_ACCESS_TOKEN);
 
-            $starring = optional($this->github->me())->starring();
-
             return response()->json([
                 'message' => 'Got the repositories successfully',
-                'repositories' => optional($starring)->all(),
+                'repositories' => $this->github->me()->starring()->all(),
             ]);
         } catch (\Exception $exception) {
             return response()->json([
