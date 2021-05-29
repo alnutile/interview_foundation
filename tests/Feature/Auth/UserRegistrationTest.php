@@ -17,7 +17,8 @@ class UserRegistrationTest extends TestCase
     public function it_renders_the_registration_page()
     {
         $this->get('register')
-            ->assertOk();
+            ->assertOk()
+            ->assertViewIs('auth.register');
     }
 
     /** @test */
@@ -76,6 +77,7 @@ class UserRegistrationTest extends TestCase
     public function user_cannot_register_with_existing_email()
     {
         factory(User::class)->create(['email' => 'hello@world.com']);
+        
         $this->postJson('/auth/registration', [
             'name' => 'hello world',
             'email' => 'hello@world.com',

@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function setGithubTokenAttribute($value)
     {
-        $this->attributes['github_token'] = Crypt::encryptString($value);
+        $this->attributes['github_token'] = blank($value) ? null : Crypt::encryptString($value);
     }
 
     public function getUserGithubTokenAttribute()

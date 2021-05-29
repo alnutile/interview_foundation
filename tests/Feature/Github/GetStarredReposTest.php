@@ -15,13 +15,22 @@ class GetStarredReposTest extends TestCase
     /** @test */
     public function it_gets_the_users_starred_repos()
     {
-        $this->mock(GitHubManager::class, function ($mock) {
-            $mock->shouldReceive('authenticate')->once();
+        $githubToken = Str::random(10);
+
+        $this->mock(GitHubManager::class, function ($mock) use ($githubToken) {
+            $mock->shouldReceive('authenticate')
+                ->once()
+                ->withArgs(function (string $token, $password, $authMethod) use ($githubToken) {
+                    return $token === $githubToken &&
+                        $password === null &&
+                        $authMethod === \Github\Client::AUTH_ACCESS_TOKEN;
+                });
+            
             $mock->shouldReceive('me->starring->all')->once();
         });
 
         $user = factory(User::class)
-            ->create(['github_token' => Str::random(10)]);
+            ->create(['github_token' => $githubToken]);
 
         $this->actingAs($user)
             ->getJson('/auth/starredGithubRepos')

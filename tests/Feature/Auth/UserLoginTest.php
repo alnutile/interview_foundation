@@ -15,7 +15,8 @@ class UserLoginTest extends TestCase
     public function it_renders_the_login_page()
     {
         $this->get('login')
-            ->assertOk();
+            ->assertOk()
+            ->assertViewIs('auth.login');
     }
 
     /** @test */
@@ -37,6 +38,7 @@ class UserLoginTest extends TestCase
         $this->postJson('auth/login', ['email' => 'world@hello.com', 'password' => 'password'])
             ->assertUnauthorized()
             ->assertJsonValidationErrors(['email']);
+        
         // check that the user was logged in
         $this->assertNull(Auth::user());
     }
