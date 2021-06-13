@@ -1,7 +1,7 @@
 # Interview Foundation Build
 
 
-[![Build Status](https://travis-ci.org/alnutile/interview_foundation.svg?branch=master)](https://travis-ci.org/alnutile/interview_foundation)
+[![Build Status](https://travis-ci.com/khalilst/interview_foundation.svg?branch=mainline)](https://travis-ci.com/khalilst/interview_foundation)
 
 This is a vanilla Laravel 7 install
 
@@ -57,7 +57,7 @@ Scenario: Press button to get starred repos
   And if I click that it will say "Getting your data" while it makes the request
   And axios will make a request to a protected api route on our app that then will call github to get the data
   And when it gets the starred repos it will show them on the home page
-  
+
 Scenario: Dealing with 500 or bad token
   Given I am logged in
   And my token is setup
@@ -73,6 +73,7 @@ And most importantly PHPUnit test that mock the interactions with the API Classe
 I should be able to build this on my machine with
 
   * composer install
+  * php artisan migrate
   * npm install && npm run dev
 
 
