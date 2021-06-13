@@ -162,7 +162,7 @@
     </package>
     <package name="App">
       <file name="/Users/alfrednutile/Code/example/app/User.php">
-        <class name="App\User" namespace="App">
+        <class name="App\Models\User" namespace="App">
           <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
         <metrics loc="39" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
