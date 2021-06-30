@@ -14,7 +14,7 @@ class UserAddedGitHubTokenField extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('git_hub_token')->nullable();
+            $table->string('git_hub_token', 1200)->nullable();
         });
     }
 

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class GetGitHubToken extends Controller
 {
@@ -15,6 +16,10 @@ class GetGitHubToken extends Controller
      */
     public function __invoke(Request $request)
     {
-        return auth()->user();
+        if (auth()->user()->git_hub_token) {
+            return substr( Crypt::decryptString(auth()->user()->git_hub_token), -42,40 );
+        }else{
+            return 'no_token';
+        }
     }
 }
