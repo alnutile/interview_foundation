@@ -32,10 +32,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 import Home from './components/Home.vue';
-// import Register from './components/Register.vue';
 import Login from './components/Login.vue';
-
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

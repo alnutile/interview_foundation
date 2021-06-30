@@ -5,7 +5,7 @@
     style="max-width: 30rem;"
     class="mb-3"
   >
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="onSubmit" v-if="show">
       <b-form-group
         id="input-group-1"
         label="Email:"
@@ -49,8 +49,9 @@ export default {
     onSubmit(event) {
       event.preventDefault()
       axios.post('/login', this.form).then(response => {
-          console.log('User signed in!');
-          console.log(response);
+        localStorage.setItem('user-token', 'Bearer ' + response.config.headers['X-XSRF-TOKEN'])
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('user-token');
+        this.$router.replace('/')
       }).catch(error => console.log(error)); // credentials didn't match
     }
   }
