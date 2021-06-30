@@ -17,7 +17,7 @@ class GetGitHubToken extends Controller
     public function __invoke(Request $request)
     {
         if (auth()->user()->git_hub_token) {
-            return substr( Crypt::decryptString(auth()->user()->git_hub_token), -42,40 );
+            return substr(Crypt::decryptString(auth()->user()->git_hub_token), -42, 40);
         }else{
             return 'no_token';
         }
