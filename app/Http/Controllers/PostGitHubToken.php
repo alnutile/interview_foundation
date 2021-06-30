@@ -19,7 +19,7 @@ class PostGitHubToken extends Controller
         $rules = [
             'git_hub_token' => 'required',
         ];
-        $validator = \Validator::make(request()->all(),$rules);
+        $validator = \Validator::make(request()->all(), $rules);
         if ($validator->fails()) {
             return response()->json($validator, 422);
         } else {
