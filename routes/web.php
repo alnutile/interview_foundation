@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::middleware(['auth'])->group(function () {
+    Route::post('/save-token', 'GithubEncryptController');
+    //Route::post('/save-token', 'UserController');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
