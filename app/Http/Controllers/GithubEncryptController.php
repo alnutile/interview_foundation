@@ -19,7 +19,7 @@ class GithubEncryptController extends Controller
         $token = $request->input('token');
 
         if ($token) {
-            $encryptedToken = Crypt::encryptString($token);
+            $encryptedToken = Crypt::encrypt($token);
             $user->update(['github_token' => $encryptedToken]);
             return response()->json(['message' => 'Token saved successfully']);
         }

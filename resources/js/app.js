@@ -8,7 +8,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import BootstrapVue from 'bootstrap-vue';
+import VueCookies from 'vue-cookies';
 
+Vue.use(VueCookies);
 Vue.use(BootstrapVue);
 
 /**

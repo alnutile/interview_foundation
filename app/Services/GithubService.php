@@ -10,4 +10,9 @@ class GitHubService
     {
         return Crypt::encryptString($token);
     }
+
+    public function decryptToken($encryptedToken)
+    {
+        return Crypt::decryptString($encryptedToken);
+    }
 }
